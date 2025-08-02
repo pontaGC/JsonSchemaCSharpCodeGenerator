@@ -1,0 +1,800 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NJsonSchema.CodeGeneration</name>
+    </assembly>
+    <members>
+        <member name="T:NJsonSchema.CodeGeneration.CodeArtifact">
+            <summary>The type generator result.</summary>
+        </member>
+        <member name="M:NJsonSchema.CodeGeneration.CodeArtifact.#ctor(System.String,NJsonSchema.CodeGeneration.CodeArtifactType,NJsonSchema.CodeGeneration.CodeArtifactLanguage,NJsonSchema.CodeGeneration.CodeArtifactCategory,System.String)">
+            <summary>Initializes a new instance of the <see cref="T:NJsonSchema.CodeGeneration.CodeArtifact"/> class.</summary>
+            <param name="typeName">The type name.</param>
+            <param name="type">The artifact type.</param>
+            <param name="language">The artifact language.</param>
+            <param name="category">The category.</param>
+            <param name="code">The code.</param>
+        </member>
+        <member name="M:NJsonSchema.CodeGeneration.CodeArtifact.#ctor(System.String,NJsonSchema.CodeGeneration.CodeArtifactType,NJsonSchema.CodeGeneration.CodeArtifactLanguage,NJsonSchema.CodeGeneration.CodeArtifactCategory,NJsonSchema.CodeGeneration.ITemplate)">
+            <summary>Initializes a new instance of the <see cref="T:NJsonSchema.CodeGeneration.CodeArtifact"/> class.</summary>
+            <param name="typeName">The type name.</param>
+            <param name="type">The artifact type.</param>
+            <param name="language">The artifact language.</param>
+            <param name="category">The category.</param>
+            <param name="template">The template to render the code.</param>
+        </member>
+        <member name="M:NJsonSchema.CodeGeneration.CodeArtifact.#ctor(System.String,System.String,NJsonSchema.CodeGeneration.CodeArtifactType,NJsonSchema.CodeGeneration.CodeArtifactLanguage,NJsonSchema.CodeGeneration.CodeArtifactCategory,NJsonSchema.CodeGeneration.ITemplate)">
+            <summary>Initializes a new instance of the <see cref="T:NJsonSchema.CodeGeneration.CodeArtifact"/> class.</summary>
+            <param name="typeName">The type name.</param>
+            <param name="baseTypeName">The base type name (e.g. base class).</param>
+            <param name="type">The artifact type.</param>
+            <param name="language">The artifact language.</param>
+            <param name="category">The category.</param>
+            <param name="template">The template to render the code.</param>
+        </member>
+        <member name="M:NJsonSchema.CodeGeneration.CodeArtifact.#ctor(System.String,System.String,NJsonSchema.CodeGeneration.CodeArtifactType,NJsonSchema.CodeGeneration.CodeArtifactLanguage,NJsonSchema.CodeGeneration.CodeArtifactCategory,System.String)">
+            <summary>Initializes a new instance of the <see cref="T:NJsonSchema.CodeGeneration.CodeArtifact"/> class.</summary>
+            <param name="typeName">The type name.</param>
+            <param name="baseTypeName">The base type name (e.g. base class).</param>
+            <param name="type">The artifact type.</param>
+            <param name="language">The artifact language.</param>
+            <param name="category">The category.</param>
+            <param name="code">The code.</param>
+        </member>
+        <member name="P:NJsonSchema.CodeGeneration.CodeArtifact.TypeName">
+            <summary>Gets the type name.</summary>
+        </member>
+        <member name="P:NJsonSchema.CodeGeneration.CodeArtifact.BaseTypeName">
+            <summary>Gets the name of the base type (i.e. the name of the inherited class).</summary>
+        </member>
+        <member name="P:NJsonSchema.CodeGeneration.CodeArtifact.Type">
+            <summary>Gets the artifact type.</summary>
+        </member>
+        <member name="P:NJsonSchema.CodeGeneration.CodeArtifact.Language">
+            <summary>Get the artifact language.</summary>
+        </member>
+        <member name="P:NJsonSchema.CodeGeneration.CodeArtifact.Category">
+            <summary>Gets the category.</summary>
+        </member>
+        <member name="P:NJsonSchema.CodeGeneration.CodeArtifact.Code">
+            <summary>Gets the generated code.</summary>
+        </member>
+        <member name="T:NJsonSchema.CodeGeneration.CodeArtifactCategory">
+            <summary>The code artifact category.</summary>
+        </member>
+        <member name="F:NJsonSchema.CodeGeneration.CodeArtifactCategory.Undefined">
+            <summary>Undefined.</summary>
+        </member>
+        <member name="F:NJsonSchema.CodeGeneration.CodeArtifactCategory.Client">
+            <summary>Client.</summary>
+        </member>
+        <member name="F:NJsonSchema.CodeGeneration.CodeArtifactCategory.Contract">
+            <summary>Contract.</summary>
+        </member>
+        <member name="F:NJsonSchema.CodeGeneration.CodeArtifactCategory.Utility">
+            <summary>Utility.</summary>
+        </member>
+        <member name="T:NJsonSchema.CodeGeneration.CodeArtifactExtensions">
+            <summary>Code artifact extensions.</summary>
+        </member>
+        <member name="M:NJsonSchema.CodeGeneration.CodeArtifactExtensions.Concatenate(System.Collections.Generic.IEnumerable{NJsonSchema.CodeGeneration.CodeArtifact})">
+            <summary>Concatenates the results.</summary>
+            <returns>The result.</returns>
+        </member>
+        <member name="M:NJsonSchema.CodeGeneration.CodeArtifactExtensions.OrderByBaseDependency(System.Collections.Generic.IEnumerable{NJsonSchema.CodeGeneration.CodeArtifact})">
+            <summary>Reorders the results so that base classes are always before child classes.</summary>
+            <param name="results">The results.</param>
+            <returns>The reordered results.</returns>
+        </member>
+        <member name="T:NJsonSchema.CodeGeneration.CodeArtifactLanguage">
+            <summary>The code artifact type.</summary>
+        </member>
+        <member name="F:NJsonSchema.CodeGeneration.CodeArtifactLanguage.Undefined">
+            <summary>Undefined.</summary>
+        </member>
+        <member name="F:NJsonSchema.CodeGeneration.CodeArtifactLanguage.CSharp">
+            <summary>C#.</summary>
+        </member>
+        <member name="F:NJsonSchema.CodeGeneration.CodeArtifactLanguage.TypeScript">
+            <summary>TypeScript.</summary>
+        </member>
+        <member name="F:NJsonSchema.CodeGeneration.CodeArtifactLanguage.Html">
+            <summary>Html.</summary>
+        </member>
+        <member name="T:NJsonSchema.CodeGeneration.CodeArtifactType">
+            <summary>The code artifact type.</summary>
+        </member>
+        <member name="F:NJsonSchema.CodeGeneration.CodeArtifactType.Undefined">
+            <summary>Undefined.</summary>
+        </member>
+        <member name="F:NJsonSchema.CodeGeneration.CodeArtifactType.Class">
+            <summary>A class (e.g. C# or TypeScript class).</summary>
+        </member>
+        <member name="F:NJsonSchema.CodeGeneration.CodeArtifactType.Interface">
+            <summary>An interface (e.g. C# or TypeScript interface).</summary>
+        </member>
+        <member name="F:NJsonSchema.CodeGeneration.CodeArtifactType.Enum">
+            <summary>An enum (e.g. C# or TypeScript interface).</summary>
+        </member>
+        <member name="F:NJsonSchema.CodeGeneration.CodeArtifactType.Function">
+            <summary>An internal function.</summary>
+        </member>
+        <member name="T:NJsonSchema.CodeGeneration.CodeGeneratorSettingsBase">
+            <summary>The code generator settings base.</summary>
+        </member>
+        <member name="M:NJsonSchema.CodeGeneration.CodeGeneratorSettingsBase.#ctor">
+            <summary>Initializes a new instance of the <see cref="T:NJsonSchema.CodeGeneration.CodeGeneratorSettingsBase"/> class.</summary>
+        </member>
+        <member name="P:NJsonSchema.CodeGeneration.CodeGeneratorSettingsBase.SchemaType">
+            <summary>Gets or sets the schema type (default: JsonSchema).</summary>
+        </member>
+        <member name="P:NJsonSchema.CodeGeneration.CodeGeneratorSettingsBase.GenerateDefaultValues">
+            <summary>Gets or sets a value indicating whether to generate default values for properties (when JSON Schema default is set, default: true).</summary>
+        </member>
+        <member name="P:NJsonSchema.CodeGeneration.CodeGeneratorSettingsBase.ExcludedTypeNames">
+            <summary>Gets or sets the excluded type names (must be defined in an import or other namespace).</summary>
+        </member>
+        <member name="P:NJsonSchema.CodeGeneration.CodeGeneratorSettingsBase.PropertyNameGenerator">
+            <summary>Gets or sets the property name generator.</summary>
+        </member>
+        <member name="P:NJsonSchema.CodeGeneration.CodeGeneratorSettingsBase.TypeNameGenerator">
+            <summary>Gets or sets the type name generator.</summary>
+        </member>
+        <member name="P:NJsonSchema.CodeGeneration.CodeGeneratorSettingsBase.EnumNameGenerator">
+            <summary>Gets or sets the enum name generator.</summary>
+        </member>
+        <member name="P:NJsonSchema.CodeGeneration.CodeGeneratorSettingsBase.TemplateFactory">
+            <summary>Gets or sets the template factory.</summary>
+        </member>
+        <member name="P:NJsonSchema.CodeGeneration.CodeGeneratorSettingsBase.TemplateDirectory">
+            <summary>Gets or sets the template directory path.</summary>
+        </member>
+        <member name="P:NJsonSchema.CodeGeneration.CodeGeneratorSettingsBase.ValueGenerator">
+            <summary>Gets or sets the output language specific value generator.</summary>
+        </member>
+        <member name="P:NJsonSchema.CodeGeneration.CodeGeneratorSettingsBase.InlineNamedAny">
+            <summary>Gets or sets a value indicating whether named/referenced any schemas should be inlined or generated as class.</summary>
+        </member>
+        <member name="T:NJsonSchema.CodeGeneration.DefaultEnumNameGenerator">
+            <summary>The default enumeration name generator.</summary>
+        </member>
+        <member name="M:NJsonSchema.CodeGeneration.DefaultEnumNameGenerator.Generate(System.Int32,System.String,System.Object,NJsonSchema.JsonSchema)">
+            <summary>Generates the enumeration name/key of the given enumeration entry.</summary>
+            <param name="index">The index of the enumeration value (check <see cref="P:NJsonSchema.JsonSchema.Enumeration" /> and <see cref="P:NJsonSchema.JsonSchema.EnumerationNames" />).</param>
+            <param name="name">The name/key.</param>
+            <param name="value">The value.</param>
+            <param name="schema">The schema.</param>
+            <returns>The enumeration name.</returns>
+        </member>
+        <member name="T:NJsonSchema.CodeGeneration.DefaultTemplateFactory">
+            <summary>The default template factory which loads templates from embedded resources.</summary>
+        </member>
+        <member name="M:NJsonSchema.CodeGeneration.DefaultTemplateFactory.#ctor(NJsonSchema.CodeGeneration.CodeGeneratorSettingsBase,System.Reflection.Assembly[])">
+            <summary>Initializes a new instance of the <see cref="T:NJsonSchema.CodeGeneration.DefaultTemplateFactory"/> class.</summary>
+            <param name="settings">The settings.</param>
+            <param name="assemblies">The assemblies containing embedded Liquid templates.</param>
+        </member>
+        <member name="M:NJsonSchema.CodeGeneration.DefaultTemplateFactory.CreateTemplate(System.String,System.String,System.Object)">
+            <summary>Creates a template for the given language, template name and template model.</summary>
+            <param name="language">The language.</param>
+            <param name="template">The template name.</param>
+            <param name="model">The template model.</param>
+            <returns>The template.</returns>
+            <exception cref="T:System.InvalidOperationException">Could not load template.</exception>
+        </member>
+        <member name="P:NJsonSchema.CodeGeneration.DefaultTemplateFactory.FluidParser">
+            <summary>
+            Gets or sets the <see cref="P:NJsonSchema.CodeGeneration.DefaultTemplateFactory.FluidParser"/> that will be used when parsing template content.
+            </summary>
+        </member>
+        <member name="P:NJsonSchema.CodeGeneration.DefaultTemplateFactory.TemplateOptions">
+            <summary>
+            Gets the <see cref="P:NJsonSchema.CodeGeneration.DefaultTemplateFactory.TemplateOptions"/> that will be used when processing template content.
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:NJsonSchema.CodeGeneration.DefaultTemplateFactory.GetToolchainVersion">
+            <summary>Gets the current toolchain version.</summary>
+            <returns>The toolchain version.</returns>
+        </member>
+        <member name="M:NJsonSchema.CodeGeneration.DefaultTemplateFactory.GetLiquidAssembly(System.String)">
+            <summary>Gets a Liquid template by name.</summary>
+            <param name="name">The assembly name.</param>
+            <returns>The assembly.</returns>
+            <exception cref="T:System.InvalidOperationException">The assembly containting liquid templates could not be found.</exception>
+        </member>
+        <member name="M:NJsonSchema.CodeGeneration.DefaultTemplateFactory.GetEmbeddedLiquidTemplate(System.String,System.String)">
+            <summary>Tries to load an embedded Liquid template.</summary>
+            <param name="language">The language.</param>
+            <param name="template">The template name.</param>
+            <returns>The template.</returns>
+            <exception cref="T:System.InvalidOperationException">Could not load template.</exception>
+        </member>
+        <member name="M:NJsonSchema.CodeGeneration.DefaultTemplateFactory.GetLiquidTemplate(System.String,System.String,System.String)">
+            <exception cref="T:System.InvalidOperationException">Could not load template.</exception>
+        </member>
+        <member name="M:NJsonSchema.CodeGeneration.DefaultTemplateFactory.LiquidTemplate.TabCountRegex">
+            <remarks>
+            Pattern:<br/>
+            <code>(\\s*)?\\{%(-)?\\s+template\\s+([a-zA-Z0-9_.]+)(\\s*?.*?)\\s(-)?%}</code><br/>
+            Options:<br/>
+            <code>RegexOptions.Compiled | RegexOptions.Singleline</code><br/>
+            Explanation:<br/>
+            <code>
+            ○ Optional (greedy).<br/>
+                ○ 1st capture group.<br/>
+                    ○ Match a whitespace character greedily any number of times.<br/>
+            ○ Match the string "{%".<br/>
+            ○ Optional (greedy).<br/>
+                ○ 2nd capture group.<br/>
+                    ○ Match '-'.<br/>
+            ○ Match a whitespace character atomically at least once.<br/>
+            ○ Match the string "template".<br/>
+            ○ Match a whitespace character atomically at least once.<br/>
+            ○ 3rd capture group.<br/>
+                ○ Match a character in the set [.0-9A-Z_a-z] greedily at least once.<br/>
+            ○ 4th capture group.<br/>
+                ○ Match a whitespace character lazily any number of times.<br/>
+                ○ Match any character lazily any number of times.<br/>
+            ○ Match a whitespace character.<br/>
+            ○ Optional (greedy).<br/>
+                ○ 5th capture group.<br/>
+                    ○ Match '-'.<br/>
+            ○ Match the string "%}".<br/>
+            </code>
+            </remarks>
+        </member>
+        <member name="M:NJsonSchema.CodeGeneration.DefaultTemplateFactory.LiquidTemplate.CsharpDocsRegex">
+            <remarks>
+            Pattern:<br/>
+            <code>(\n( )*)([^\n]*?) \\| csharpdocs }}</code><br/>
+            Options:<br/>
+            <code>RegexOptions.Compiled | RegexOptions.Singleline</code><br/>
+            Explanation:<br/>
+            <code>
+            ○ 1st capture group.<br/>
+                ○ Match '\n'.<br/>
+                ○ Loop greedily any number of times.<br/>
+                    ○ 2nd capture group.<br/>
+                        ○ Match ' '.<br/>
+            ○ 3rd capture group.<br/>
+                ○ Match a character other than '\n' lazily any number of times.<br/>
+            ○ Match the string " | csharpdocs }}".<br/>
+            </code>
+            </remarks>
+        </member>
+        <member name="M:NJsonSchema.CodeGeneration.DefaultTemplateFactory.LiquidTemplate.TabRegex">
+            <remarks>
+            Pattern:<br/>
+            <code>(\n( )*)([^\n]*?) \\| tab }}</code><br/>
+            Options:<br/>
+            <code>RegexOptions.Compiled | RegexOptions.Singleline</code><br/>
+            Explanation:<br/>
+            <code>
+            ○ 1st capture group.<br/>
+                ○ Match '\n'.<br/>
+                ○ Loop greedily any number of times.<br/>
+                    ○ 2nd capture group.<br/>
+                        ○ Match ' '.<br/>
+            ○ 3rd capture group.<br/>
+                ○ Match a character other than '\n' lazily any number of times.<br/>
+            ○ Match the string " | tab }}".<br/>
+            </code>
+            </remarks>
+        </member>
+        <member name="M:NJsonSchema.CodeGeneration.DefaultTemplateFactory.LiquidTemplate.EmptyTemplateCleanupRegex">
+            <remarks>
+            Pattern:<br/>
+            <code>^[ ]+__EMPTY-TEMPLATE__$[\\n]{0,1}</code><br/>
+            Options:<br/>
+            <code>RegexOptions.Multiline | RegexOptions.Compiled</code><br/>
+            Explanation:<br/>
+            <code>
+            ○ Match if at the beginning of a line.<br/>
+            ○ Match ' ' atomically at least once.<br/>
+            ○ Match the string "__EMPTY-TEMPLATE__".<br/>
+            ○ Match if at the end of a line.<br/>
+            ○ Match '\n' atomically, optionally.<br/>
+            </code>
+            </remarks>
+        </member>
+        <member name="T:NJsonSchema.CodeGeneration.DefaultTemplateFactory.UnsafeMemberAccessStrategy">
+            <summary>
+            Version that allows all access, safe as models are handled by NJsonSchema.
+            </summary>
+        </member>
+        <member name="T:NJsonSchema.CodeGeneration.ExtensionCode">
+            <summary>Provides access to the extension code.</summary>
+        </member>
+        <member name="P:NJsonSchema.CodeGeneration.ExtensionCode.ExtensionClasses">
+            <summary>Gets the code of the class extension.</summary>
+        </member>
+        <member name="P:NJsonSchema.CodeGeneration.ExtensionCode.ImportCode">
+            <summary>Gets or sets the imports.</summary>
+        </member>
+        <member name="P:NJsonSchema.CodeGeneration.ExtensionCode.TopCode">
+            <summary>Gets the extension code which is inserted at the start of the generated code.</summary>
+        </member>
+        <member name="P:NJsonSchema.CodeGeneration.ExtensionCode.BottomCode">
+            <summary>Gets the extension code which is appended at the end of the generated code.</summary>
+        </member>
+        <member name="M:NJsonSchema.CodeGeneration.ExtensionCode.GetExtensionClassBody(System.String)">
+            <summary>Gets the body of the extension class.</summary>
+            <param name="className">The class name.</param>
+            <returns>The body code</returns>
+            <exception cref="T:System.InvalidOperationException">The extension class is not defined.</exception>
+        </member>
+        <member name="T:NJsonSchema.CodeGeneration.GeneratorBase">
+            <summary>The base class of the code generators</summary>
+        </member>
+        <member name="M:NJsonSchema.CodeGeneration.GeneratorBase.#ctor(System.Object,NJsonSchema.CodeGeneration.TypeResolverBase,NJsonSchema.CodeGeneration.CodeGeneratorSettingsBase)">
+            <summary>Initializes a new instance of the <see cref="T:NJsonSchema.CodeGeneration.GeneratorBase"/> class.</summary>
+            <param name="rootObject">The root object.</param>
+            <param name="typeResolver">The type resolver.</param>
+            <param name="settings">The settings.</param>
+        </member>
+        <member name="P:NJsonSchema.CodeGeneration.GeneratorBase.RootObject">
+            <summary>Gets the root object.</summary>
+        </member>
+        <member name="M:NJsonSchema.CodeGeneration.GeneratorBase.GenerateFile(System.String)">
+            <summary>Generates the the whole file containing all needed types.</summary>
+            <returns>The code</returns>
+        </member>
+        <member name="M:NJsonSchema.CodeGeneration.GeneratorBase.GenerateFile">
+            <summary>Generates the the whole file containing all needed types.</summary>
+            <returns>The code</returns>
+        </member>
+        <member name="M:NJsonSchema.CodeGeneration.GeneratorBase.GenerateTypes(NJsonSchema.JsonSchema,System.String)">
+            <summary>Generates the type from the schema and all types from the resolver.</summary>
+            <param name="schema">The schema</param>
+            <param name="typeNameHint">The type name hint.</param>
+            <returns>The code.</returns>
+        </member>
+        <member name="M:NJsonSchema.CodeGeneration.GeneratorBase.GenerateFile(NJsonSchema.JsonSchema,System.String)">
+            <summary>Generates the the whole file containing all needed types.</summary>
+            <returns>The code</returns>
+        </member>
+        <member name="M:NJsonSchema.CodeGeneration.GeneratorBase.GenerateTypes">
+            <summary>Generates all types from the resolver.</summary>
+            <returns>The code.</returns>
+        </member>
+        <member name="M:NJsonSchema.CodeGeneration.GeneratorBase.GenerateFile(System.Collections.Generic.IEnumerable{NJsonSchema.CodeGeneration.CodeArtifact})">
+            <summary>Generates the the whole file containing all needed types.</summary>
+            <returns>The code</returns>
+        </member>
+        <member name="M:NJsonSchema.CodeGeneration.GeneratorBase.GenerateType(NJsonSchema.JsonSchema,System.String)">
+            <summary>Generates the type.</summary>
+            <param name="schema">The schema.</param>
+            <param name="typeNameHint">The type name hint.</param>
+            <returns>The code.</returns>
+        </member>
+        <member name="T:NJsonSchema.CodeGeneration.IEnumNameGenerator">
+            <summary>Generates the name of an enumeration entry.</summary>
+        </member>
+        <member name="M:NJsonSchema.CodeGeneration.IEnumNameGenerator.Generate(System.Int32,System.String,System.Object,NJsonSchema.JsonSchema)">
+            <summary>Generates the enumeration name/key of the given enumeration entry.</summary>
+            <param name="index">The index of the enumeration value (check <see cref="P:NJsonSchema.JsonSchema.Enumeration"/> and <see cref="P:NJsonSchema.JsonSchema.EnumerationNames"/>).</param>
+            <param name="name">The name/key.</param>
+            <param name="value">The value.</param>
+            <param name="schema">The schema.</param>
+            <returns>The enumeration name.</returns>
+        </member>
+        <member name="T:NJsonSchema.CodeGeneration.IPropertyNameGenerator">
+            <summary>Generates the property name for a given <see cref="T:NJsonSchema.JsonSchemaProperty"/>.</summary>
+        </member>
+        <member name="M:NJsonSchema.CodeGeneration.IPropertyNameGenerator.Generate(NJsonSchema.JsonSchemaProperty)">
+            <summary>Generates the property name.</summary>
+            <param name="property">The property.</param>
+            <returns>The new name.</returns>
+        </member>
+        <member name="T:NJsonSchema.CodeGeneration.ITemplate">
+            <summary>Interface for a template.</summary>
+        </member>
+        <member name="M:NJsonSchema.CodeGeneration.ITemplate.Render">
+            <summary>Renders the template.</summary>
+            <returns>The output.</returns>
+        </member>
+        <member name="T:NJsonSchema.CodeGeneration.ITemplateFactory">
+            <summary>The interface of a code generator template factory.</summary>
+        </member>
+        <member name="M:NJsonSchema.CodeGeneration.ITemplateFactory.CreateTemplate(System.String,System.String,System.Object)">
+            <summary>Creates a template for the given language, template name and template model.</summary>
+            <param name="language">The language (i.e. 'CSharp' or 'TypeScript').</param>
+            <param name="template">The template name.</param>
+            <param name="model">The template model.</param>
+            <returns>The template.</returns>
+        </member>
+        <member name="T:NJsonSchema.CodeGeneration.JsonSchemaGraphUtilities">
+            <summary>JSON Schema graph utilities.</summary>
+        </member>
+        <member name="M:NJsonSchema.CodeGeneration.JsonSchemaGraphUtilities.GetDerivedSchemas(NJsonSchema.JsonSchema,System.Object)">
+            <summary>Gets the derived schemas.</summary>
+            <param name="schema">The schema.</param>
+            <param name="rootObject">The root object.</param>
+            <returns></returns>
+        </member>
+        <member name="T:NJsonSchema.CodeGeneration.LiquidParser">
+            <summary>
+            A custom <see cref="T:Fluid.FluidParser"/> implementation that can handle NJsonSchema liquid templating language extensions and customizations.
+            </summary>
+        </member>
+        <member name="M:NJsonSchema.CodeGeneration.LiquidParser.#ctor(Fluid.FluidParserOptions)">
+            <summary>
+            Creates a new instance of custom Liquid parser that can handle NJsonSchema templates.
+            </summary>
+            <param name="options"></param>
+        </member>
+        <member name="T:NJsonSchema.CodeGeneration.Models.ClassTemplateModelBase">
+            <summary>The class template base class.</summary>
+        </member>
+        <member name="M:NJsonSchema.CodeGeneration.Models.ClassTemplateModelBase.#ctor(NJsonSchema.CodeGeneration.TypeResolverBase,NJsonSchema.JsonSchema,System.Object)">
+            <summary>Initializes a new instance of the <see cref="T:NJsonSchema.CodeGeneration.Models.ClassTemplateModelBase" /> class.</summary>
+            <param name="resolver">The resolver.</param>
+            <param name="schema">The schema.</param>
+            <param name="rootObject">The root object.</param>
+        </member>
+        <member name="P:NJsonSchema.CodeGeneration.Models.ClassTemplateModelBase.ClassName">
+            <summary>Gets the class.</summary>
+        </member>
+        <member name="P:NJsonSchema.CodeGeneration.Models.ClassTemplateModelBase.SchemaTitle">
+            <summary>
+            Gets the original title of the class (schema title).
+            </summary>
+        </member>
+        <member name="P:NJsonSchema.CodeGeneration.Models.ClassTemplateModelBase.IsObject">
+            <summary>Gets a value indicating whether this class represents a JSON object with fixed amount of properties.</summary>
+        </member>
+        <member name="P:NJsonSchema.CodeGeneration.Models.ClassTemplateModelBase.IsAbstract">
+            <summary>Gets or sets a value indicating whether the type is abstract.</summary>
+        </member>
+        <member name="P:NJsonSchema.CodeGeneration.Models.ClassTemplateModelBase.ExtensionData">
+            <summary>Gets the property extension data.</summary>
+        </member>
+        <member name="P:NJsonSchema.CodeGeneration.Models.ClassTemplateModelBase.DerivedClasses">
+            <summary>Gets the derived class names (discriminator key/type name).</summary>
+        </member>
+        <member name="T:NJsonSchema.CodeGeneration.Models.ClassTemplateModelBase.DerivedClassModel">
+            <summary>The model of a derived class.</summary>
+        </member>
+        <member name="P:NJsonSchema.CodeGeneration.Models.ClassTemplateModelBase.DerivedClassModel.Discriminator">
+            <summary>Gets the discriminator.</summary>
+        </member>
+        <member name="P:NJsonSchema.CodeGeneration.Models.ClassTemplateModelBase.DerivedClassModel.ClassName">
+            <summary>Gets the class name.</summary>
+        </member>
+        <member name="P:NJsonSchema.CodeGeneration.Models.ClassTemplateModelBase.DerivedClassModel.IsAbstract">
+            <summary>Gets a value indicating whether the class is abstract.</summary>
+        </member>
+        <member name="T:NJsonSchema.CodeGeneration.Models.EnumerationItemModel">
+            <summary>Describes an enumeration entry.</summary>
+        </member>
+        <member name="P:NJsonSchema.CodeGeneration.Models.EnumerationItemModel.Name">
+            <summary>Gets or sets the name.</summary>
+        </member>
+        <member name="P:NJsonSchema.CodeGeneration.Models.EnumerationItemModel.OriginalName">
+            <summary>Gets or sets the original name.</summary>
+        </member>
+        <member name="P:NJsonSchema.CodeGeneration.Models.EnumerationItemModel.Value">
+            <summary>Gets or sets the value.</summary>
+        </member>
+        <member name="P:NJsonSchema.CodeGeneration.Models.EnumerationItemModel.Description">
+            <summary>Gets or sets the description.</summary>
+        </member>
+        <member name="P:NJsonSchema.CodeGeneration.Models.EnumerationItemModel.InternalValue">
+            <summary>Gets or sets the internal value (e.g. the underlying/system value).</summary>
+        </member>
+        <member name="P:NJsonSchema.CodeGeneration.Models.EnumerationItemModel.InternalFlagValue">
+            <summary>Gets or sets the internal flag value (e.g. the underlying/system value).</summary>
+        </member>
+        <member name="T:NJsonSchema.CodeGeneration.Models.PropertyModelBase">
+            <summary>The property template model base class.</summary>
+        </member>
+        <member name="M:NJsonSchema.CodeGeneration.Models.PropertyModelBase.#ctor(NJsonSchema.JsonSchemaProperty,NJsonSchema.CodeGeneration.Models.ClassTemplateModelBase,NJsonSchema.CodeGeneration.TypeResolverBase,NJsonSchema.CodeGeneration.CodeGeneratorSettingsBase)">
+            <summary>Initializes a new instance of the <see cref="T:NJsonSchema.CodeGeneration.Models.PropertyModelBase"/> class.</summary>
+            <param name="property">The property.</param>
+            <param name="classTemplateModel">The class template model.</param>
+            <param name="typeResolver">The type resolver.</param>
+            <param name="settings">The settings.</param>
+        </member>
+        <member name="P:NJsonSchema.CodeGeneration.Models.PropertyModelBase.Type">
+            <summary>Gets the type of the property.</summary>
+        </member>
+        <member name="P:NJsonSchema.CodeGeneration.Models.PropertyModelBase.ValueGenerator">
+            <summary>Gets the default value generator.</summary>
+        </member>
+        <member name="P:NJsonSchema.CodeGeneration.Models.PropertyModelBase.HasDefaultValue">
+            <summary>Gets a value indicating whether the property has default value.</summary>
+        </member>
+        <member name="P:NJsonSchema.CodeGeneration.Models.PropertyModelBase.DefaultValue">
+            <summary>Gets the default value as string.</summary>
+        </member>
+        <member name="P:NJsonSchema.CodeGeneration.Models.PropertyModelBase.PropertyName">
+            <summary>Gets the name of the property.</summary>
+        </member>
+        <member name="P:NJsonSchema.CodeGeneration.Models.PropertyModelBase.IsNullable">
+            <summary>Gets a value indicating whether the property is nullable.</summary>
+        </member>
+        <member name="P:NJsonSchema.CodeGeneration.Models.PropertyModelBase.IsRequired">
+            <summary>Gets a value indicating whether the property is required.</summary>
+        </member>
+        <member name="P:NJsonSchema.CodeGeneration.Models.PropertyModelBase.IsStringEnumArray">
+            <summary>Gets a value indicating whether the property is a string enum array.</summary>
+        </member>
+        <member name="P:NJsonSchema.CodeGeneration.Models.PropertyModelBase.ExtensionData">
+            <summary>Gets the property extension data.</summary>
+        </member>
+        <member name="P:NJsonSchema.CodeGeneration.Models.PropertyModelBase.Format">
+            <summary>Gets the JSON Schema format property.</summary>
+        </member>
+        <member name="M:NJsonSchema.CodeGeneration.Models.PropertyModelBase.GetTypeNameHint">
+            <summary>Gets the type name hint for the property.</summary>
+        </member>
+        <member name="T:NJsonSchema.CodeGeneration.TypeResolverBase">
+            <summary>The type resolver base.</summary>
+        </member>
+        <member name="M:NJsonSchema.CodeGeneration.TypeResolverBase.#ctor(NJsonSchema.CodeGeneration.CodeGeneratorSettingsBase)">
+            <summary>Initializes a new instance of the <see cref="T:NJsonSchema.CodeGeneration.TypeResolverBase" /> class.</summary>
+            <param name="settings">The settings.</param>
+        </member>
+        <member name="P:NJsonSchema.CodeGeneration.TypeResolverBase.Types">
+            <summary>Gets the registered schemas and with their type names.</summary>
+        </member>
+        <member name="M:NJsonSchema.CodeGeneration.TypeResolverBase.TryResolve(NJsonSchema.JsonSchema,System.String)">
+            <summary>Tries to resolve the schema and returns null if there was a problem.</summary>
+            <param name="schema">The schema.</param>
+            <param name="typeNameHint">The type name hint.</param>
+            <returns>The type name.</returns>
+        </member>
+        <member name="M:NJsonSchema.CodeGeneration.TypeResolverBase.Resolve(NJsonSchema.JsonSchema,System.Boolean,System.String)">
+            <summary>Resolves and possibly generates the specified schema.</summary>
+            <param name="schema">The schema.</param>
+            <param name="isNullable">Specifies whether the given type usage is nullable.</param>
+            <param name="typeNameHint">The type name hint to use when generating the type and the type name is missing.</param>
+            <returns>The type name.</returns>
+        </member>
+        <member name="M:NJsonSchema.CodeGeneration.TypeResolverBase.GetOrGenerateTypeName(NJsonSchema.JsonSchema,System.String)">
+            <summary>Gets or generates the type name for the given schema.</summary>
+            <param name="schema">The schema.</param>
+            <param name="typeNameHint">The type name hint.</param>
+            <returns>The type name.</returns>
+        </member>
+        <member name="M:NJsonSchema.CodeGeneration.TypeResolverBase.RegisterSchemaDefinitions(System.Collections.Generic.IDictionary{System.String,NJsonSchema.JsonSchema})">
+            <summary>Adds all schemas to the resolver.</summary>
+            <param name="definitions">The schema definitions.</param>
+        </member>
+        <member name="M:NJsonSchema.CodeGeneration.TypeResolverBase.RemoveNullability(NJsonSchema.JsonSchema)">
+            <summary>Removes a nullable oneOf reference if available.</summary>
+            <param name="schema">The schema.</param>
+            <returns>The actually resolvable schema</returns>
+        </member>
+        <member name="M:NJsonSchema.CodeGeneration.TypeResolverBase.GetResolvableSchema(NJsonSchema.JsonSchema)">
+            <summary>Gets the actual schema (i.e. when not referencing a type schema or it is inlined)
+            and removes a nullable oneOf reference if available.</summary>
+            <param name="schema">The schema.</param>
+            <returns>The actually resolvable schema</returns>
+        </member>
+        <member name="M:NJsonSchema.CodeGeneration.TypeResolverBase.GeneratesType(NJsonSchema.JsonSchema)">
+            <summary>Checks whether the given schema generates a new type (e.g. class, enum, class with dictionary inheritance, etc.)
+            or is an inline type (e.g. string, number, etc.). Warning: Enum will also return true.</summary>
+            <param name="schema"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NJsonSchema.CodeGeneration.TypeResolverBase.IsDefinitionTypeSchema(NJsonSchema.JsonSchema)">
+            <summary>Checks whether the given schema from definitions should generate a type.</summary>
+            <param name="schema">The schema.</param>
+            <returns>True if the schema should generate a type.</returns>
+        </member>
+        <member name="M:NJsonSchema.CodeGeneration.TypeResolverBase.ResolveDictionaryValueType(NJsonSchema.JsonSchema,System.String)">
+            <summary>Resolves the type of the dictionary value of the given schema (must be a dictionary schema).</summary>
+            <param name="schema">The schema.</param>
+            <param name="fallbackType">The fallback type (e.g. 'object').</param>
+            <returns>The type.</returns>
+        </member>
+        <member name="M:NJsonSchema.CodeGeneration.TypeResolverBase.ResolveDictionaryKeyType(NJsonSchema.JsonSchema,System.String)">
+            <summary>Resolves the type of the dictionary key of the given schema (must be a dictionary schema).</summary>
+            <param name="schema">The schema.</param>
+            <param name="fallbackType">The fallback type (e.g. 'object').</param>
+            <returns>The type.</returns>
+        </member>
+        <member name="T:NJsonSchema.CodeGeneration.ValueGeneratorBase">
+            <summary>Converts the default value to a language specific identifier.</summary>
+        </member>
+        <member name="M:NJsonSchema.CodeGeneration.ValueGeneratorBase.#ctor(NJsonSchema.CodeGeneration.CodeGeneratorSettingsBase)">
+            <summary>Initializes a new instance of the <see cref="T:NJsonSchema.CodeGeneration.ValueGeneratorBase" /> class.</summary>
+            <param name="settings">The settings.</param>
+        </member>
+        <member name="M:NJsonSchema.CodeGeneration.ValueGeneratorBase.GetDefaultValue(NJsonSchema.JsonSchema,System.Boolean,System.String,System.String,System.Boolean,NJsonSchema.CodeGeneration.TypeResolverBase)">
+            <summary>Gets the default value code.</summary>
+            <param name="schema">The schema.</param>
+            <param name="allowsNull">Specifies whether the default value assignment also allows null.</param>
+            <param name="targetType">The type of the target.</param>
+            <param name="typeNameHint">The type name hint to use when generating the type and the type name is missing.</param>
+            <param name="useSchemaDefault">if set to <c>true</c> uses the default value from the schema if available.</param>
+            <param name="typeResolver">The type resolver.</param>
+            <returns>The code.</returns>
+        </member>
+        <member name="M:NJsonSchema.CodeGeneration.ValueGeneratorBase.GetNumericValue(NJsonSchema.JsonObjectType,System.Object,System.String)">
+            <summary>Converts the default value to a number literal. </summary>
+            <param name="type">The JSON type.</param>
+            <param name="value">The value to convert.</param>
+            <param name="format">Optional schema format</param>
+            <returns>The number literal.</returns>
+        </member>
+        <member name="M:NJsonSchema.CodeGeneration.ValueGeneratorBase.GetEnumDefaultValue(NJsonSchema.JsonSchema,NJsonSchema.JsonSchema,System.String,NJsonSchema.CodeGeneration.TypeResolverBase)">
+            <summary>Gets the enum default value.</summary>
+            <param name="schema">The schema.</param>
+            <param name="actualSchema">The actual schema.</param>
+            <param name="typeNameHint">The type name hint.</param>
+            <param name="typeResolver">The type resolver.</param>
+            <returns>The enum default value.</returns>
+        </member>
+        <member name="M:NJsonSchema.CodeGeneration.ValueGeneratorBase.GetDefaultAsStringLiteral(NJsonSchema.JsonSchema)">
+            <summary>Gets the default value as string literal.</summary>
+            <param name="schema">The schema.</param>
+            <returns>The string literal.</returns>
+        </member>
+        <member name="M:NJsonSchema.CodeGeneration.ValueGeneratorBase.ConvertNumberToString(System.Object)">
+            <summary>Converts a number to its string representation.</summary>
+            <param name="value">The value.</param>
+            <returns>The string.</returns>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.TabCountRegex_0">
+            <summary>Custom <see cref="T:System.Text.RegularExpressions.Regex"/>-derived type for the TabCountRegex method.</summary>
+        </member>
+        <member name="F:System.Text.RegularExpressions.Generated.TabCountRegex_0.Instance">
+            <summary>Cached, thread-safe singleton instance.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.TabCountRegex_0.#ctor">
+            <summary>Initializes the instance.</summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.TabCountRegex_0.RunnerFactory">
+            <summary>Provides a factory for creating <see cref="T:System.Text.RegularExpressions.RegexRunner"/> instances to be used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.TabCountRegex_0.RunnerFactory.CreateInstance">
+            <summary>Creates an instance of a <see cref="T:System.Text.RegularExpressions.RegexRunner"/> used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.TabCountRegex_0.RunnerFactory.Runner">
+            <summary>Provides the runner that contains the custom logic implementing the specified regular expression.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.TabCountRegex_0.RunnerFactory.Runner.Scan(System.ReadOnlySpan{System.Char})">
+            <summary>Scan the <paramref name="inputSpan"/> starting from base.runtextstart for the next match.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.TabCountRegex_0.RunnerFactory.Runner.TryFindNextPossibleStartingPosition(System.ReadOnlySpan{System.Char})">
+            <summary>Search <paramref name="inputSpan"/> starting from base.runtextpos for the next location a match could possibly start.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+            <returns>true if a possible match was found; false if no more matches are possible.</returns>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.TabCountRegex_0.RunnerFactory.Runner.TryMatchAtCurrentPosition(System.ReadOnlySpan{System.Char})">
+            <summary>Determine whether <paramref name="inputSpan"/> at base.runtextpos is a match for the regular expression.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+            <returns>true if the regular expression matches at the current position; otherwise, false.</returns>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.CsharpDocsRegex_1">
+            <summary>Custom <see cref="T:System.Text.RegularExpressions.Regex"/>-derived type for the CsharpDocsRegex method.</summary>
+        </member>
+        <member name="F:System.Text.RegularExpressions.Generated.CsharpDocsRegex_1.Instance">
+            <summary>Cached, thread-safe singleton instance.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.CsharpDocsRegex_1.#ctor">
+            <summary>Initializes the instance.</summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.CsharpDocsRegex_1.RunnerFactory">
+            <summary>Provides a factory for creating <see cref="T:System.Text.RegularExpressions.RegexRunner"/> instances to be used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.CsharpDocsRegex_1.RunnerFactory.CreateInstance">
+            <summary>Creates an instance of a <see cref="T:System.Text.RegularExpressions.RegexRunner"/> used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.CsharpDocsRegex_1.RunnerFactory.Runner">
+            <summary>Provides the runner that contains the custom logic implementing the specified regular expression.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.CsharpDocsRegex_1.RunnerFactory.Runner.Scan(System.ReadOnlySpan{System.Char})">
+            <summary>Scan the <paramref name="inputSpan"/> starting from base.runtextstart for the next match.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.CsharpDocsRegex_1.RunnerFactory.Runner.TryFindNextPossibleStartingPosition(System.ReadOnlySpan{System.Char})">
+            <summary>Search <paramref name="inputSpan"/> starting from base.runtextpos for the next location a match could possibly start.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+            <returns>true if a possible match was found; false if no more matches are possible.</returns>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.CsharpDocsRegex_1.RunnerFactory.Runner.TryMatchAtCurrentPosition(System.ReadOnlySpan{System.Char})">
+            <summary>Determine whether <paramref name="inputSpan"/> at base.runtextpos is a match for the regular expression.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+            <returns>true if the regular expression matches at the current position; otherwise, false.</returns>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.TabRegex_2">
+            <summary>Custom <see cref="T:System.Text.RegularExpressions.Regex"/>-derived type for the TabRegex method.</summary>
+        </member>
+        <member name="F:System.Text.RegularExpressions.Generated.TabRegex_2.Instance">
+            <summary>Cached, thread-safe singleton instance.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.TabRegex_2.#ctor">
+            <summary>Initializes the instance.</summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.TabRegex_2.RunnerFactory">
+            <summary>Provides a factory for creating <see cref="T:System.Text.RegularExpressions.RegexRunner"/> instances to be used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.TabRegex_2.RunnerFactory.CreateInstance">
+            <summary>Creates an instance of a <see cref="T:System.Text.RegularExpressions.RegexRunner"/> used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.TabRegex_2.RunnerFactory.Runner">
+            <summary>Provides the runner that contains the custom logic implementing the specified regular expression.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.TabRegex_2.RunnerFactory.Runner.Scan(System.ReadOnlySpan{System.Char})">
+            <summary>Scan the <paramref name="inputSpan"/> starting from base.runtextstart for the next match.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.TabRegex_2.RunnerFactory.Runner.TryFindNextPossibleStartingPosition(System.ReadOnlySpan{System.Char})">
+            <summary>Search <paramref name="inputSpan"/> starting from base.runtextpos for the next location a match could possibly start.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+            <returns>true if a possible match was found; false if no more matches are possible.</returns>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.TabRegex_2.RunnerFactory.Runner.TryMatchAtCurrentPosition(System.ReadOnlySpan{System.Char})">
+            <summary>Determine whether <paramref name="inputSpan"/> at base.runtextpos is a match for the regular expression.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+            <returns>true if the regular expression matches at the current position; otherwise, false.</returns>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.EmptyTemplateCleanupRegex_3">
+            <summary>Custom <see cref="T:System.Text.RegularExpressions.Regex"/>-derived type for the EmptyTemplateCleanupRegex method.</summary>
+        </member>
+        <member name="F:System.Text.RegularExpressions.Generated.EmptyTemplateCleanupRegex_3.Instance">
+            <summary>Cached, thread-safe singleton instance.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.EmptyTemplateCleanupRegex_3.#ctor">
+            <summary>Initializes the instance.</summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.EmptyTemplateCleanupRegex_3.RunnerFactory">
+            <summary>Provides a factory for creating <see cref="T:System.Text.RegularExpressions.RegexRunner"/> instances to be used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.EmptyTemplateCleanupRegex_3.RunnerFactory.CreateInstance">
+            <summary>Creates an instance of a <see cref="T:System.Text.RegularExpressions.RegexRunner"/> used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.EmptyTemplateCleanupRegex_3.RunnerFactory.Runner">
+            <summary>Provides the runner that contains the custom logic implementing the specified regular expression.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.EmptyTemplateCleanupRegex_3.RunnerFactory.Runner.Scan(System.ReadOnlySpan{System.Char})">
+            <summary>Scan the <paramref name="inputSpan"/> starting from base.runtextstart for the next match.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.EmptyTemplateCleanupRegex_3.RunnerFactory.Runner.TryFindNextPossibleStartingPosition(System.ReadOnlySpan{System.Char})">
+            <summary>Search <paramref name="inputSpan"/> starting from base.runtextpos for the next location a match could possibly start.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+            <returns>true if a possible match was found; false if no more matches are possible.</returns>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.EmptyTemplateCleanupRegex_3.RunnerFactory.Runner.TryMatchAtCurrentPosition(System.ReadOnlySpan{System.Char})">
+            <summary>Determine whether <paramref name="inputSpan"/> at base.runtextpos is a match for the regular expression.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+            <returns>true if the regular expression matches at the current position; otherwise, false.</returns>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.Utilities">
+            <summary>Helper methods used by generated <see cref="T:System.Text.RegularExpressions.Regex"/>-derived implementations.</summary>
+        </member>
+        <member name="F:System.Text.RegularExpressions.Generated.Utilities.s_defaultTimeout">
+            <summary>Default timeout value set in <see cref="T:System.AppContext"/>, or <see cref="F:System.Text.RegularExpressions.Regex.InfiniteMatchTimeout"/> if none was set.</summary>
+        </member>
+        <member name="F:System.Text.RegularExpressions.Generated.Utilities.s_hasTimeout">
+            <summary>Whether <see cref="F:System.Text.RegularExpressions.Generated.Utilities.s_defaultTimeout"/> is non-infinite.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.Utilities.IndexOfNonAsciiOrAny_CBA0AA20255A8FE8A9E5387C74FFAA57BF6C63CF6CDEC6BE8E93E6E5729E1410(System.ReadOnlySpan{System.Char})">
+            <summary>Finds the next index of any character that matches a character in the set [{\s].</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.Utilities.StackPop(System.Int32[],System.Int32@,System.Int32@,System.Int32@)">
+            <summary>Pops 2 values from the backtracking stack.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.Utilities.StackPush(System.Int32[]@,System.Int32@,System.Int32)">
+            <summary>Pushes 1 value onto the backtracking stack.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.Utilities.StackPush(System.Int32[]@,System.Int32@,System.Int32,System.Int32)">
+            <summary>Pushes 2 values onto the backtracking stack.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.Utilities.StackPush(System.Int32[]@,System.Int32@,System.Int32,System.Int32,System.Int32)">
+            <summary>Pushes 3 values onto the backtracking stack.</summary>
+        </member>
+        <member name="F:System.Text.RegularExpressions.Generated.Utilities.s_ascii_40FF03FEFFFF87FEFFFF07">
+            <summary>Supports searching for characters in or not in ".0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz".</summary>
+        </member>
+        <member name="F:System.Text.RegularExpressions.Generated.Utilities.s_ascii_FFC1FFFFFEFFFFFFFFFFFFFFFFFFFFF7">
+            <summary>Supports searching for characters in or not in "\0\u0001\u0002\u0003\u0004\u0005\u0006\a\b\u000e\u000f\u0010\u0011\u0012\u0013\u0014\u0015\u0016\u0017\u0018\u0019\u001a\u001b\u001c\u001d\u001e\u001f!\"#$%&amp;'()*+,-./0123456789:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz|}~\u007f".</summary>
+        </member>
+    </members>
+</doc>
